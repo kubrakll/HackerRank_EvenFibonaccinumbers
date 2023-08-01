@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+class Solution {
+
+    static int Fibonacci(int n){
+        if (n <= 0)
+            return 0;
+        else if (n == 1)
+            return 1;
+        else
+            return Fibonacci(n - 1) + Fibonacci(n - 2);
+    }
+    
+    static void Main(String[] args) {
+        int t = Convert.ToInt32(Console.ReadLine());
+        for (int a0 = 0; a0 < t; a0++){
+            int n = Convert.ToInt32(Console.ReadLine());
+            int toplam = 0;
+            int i = 0;
+
+            while (true) {
+                int fib = Fibonacci(i);
+                if (fib > n) {
+                    break;
+                }
+                if (fib % 2 == 0) {
+                    toplam += fib;
+                }
+                i++;
+            }
+
+            Console.WriteLine(toplam);
+        }
+        
+    }
+    
+}
